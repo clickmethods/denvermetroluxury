@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 14% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 10%;
+    --primary: 42 45% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 14% 10%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 42 45% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 42 45% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Sora', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', Georgia, serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[#B8860B] text-white px-8 py-4 font-medium tracking-wide transition-all duration-200 rounded;
+}
+
+.btn-primary:hover {
+  @apply bg-[#9A7209] -translate-y-0.5;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+}
+
+.btn-outline {
+  @apply border-2 border-[#B8860B] text-[#B8860B] px-8 py-4 font-medium tracking-wide transition-all duration-200 bg-transparent rounded;
+}
+
+.btn-outline:hover {
+  @apply bg-[#B8860B] text-white;
+}
+
+.btn-dark {
+  @apply bg-[#1a1a1a] text-white px-6 py-3 font-medium tracking-wide transition-all duration-200 rounded text-sm;
+}
+
+.btn-dark:hover {
+  @apply bg-[#333];
+}
+
+/* Card hover effects */
+.card-lift {
+  @apply transition-all duration-300;
+}
+
+.card-lift:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Image hover zoom */
+.img-zoom {
+  @apply overflow-hidden;
+}
+
+.img-zoom img {
+  @apply transition-transform duration-500;
+}
+
+.img-zoom:hover img {
+  @apply scale-105;
+}
+
+/* Link underline animation */
+.link-underline {
+  @apply relative;
+}
+
+.link-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-px bg-current transform origin-left scale-x-0 transition-transform duration-300;
+}
+
+.link-underline:hover::after {
+  @apply scale-x-100;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Selection */
+::selection {
+  background: rgba(184, 134, 11, 0.2);
+  color: #1a1a1a;
+}
+
+/* Form inputs */
+input, select, textarea {
+  @apply bg-white border border-gray-200 rounded px-4 py-3 text-gray-900 placeholder:text-gray-400 transition-all duration-200;
+}
+
+input:focus, select:focus, textarea:focus {
+  @apply outline-none border-[#B8860B];
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+}
+
+/* Section backgrounds */
+.section-white {
+  @apply bg-white;
+}
+
+.section-gray {
+  @apply bg-gray-50;
+}
+
+/* Gold accent text */
+.text-gold {
+  color: #B8860B;
+}
+
+/* Dark text for white backgrounds */
+.text-dark {
+  color: #1a1a1a;
+}
+
+.text-muted-dark {
+  color: #666;
+}
+
+/* Badge styles */
+.badge-new {
+  @apply bg-[#B8860B] text-white text-xs font-semibold px-3 py-1 rounded;
+}
+
+.badge-gated {
+  @apply bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded;
+}
+
+.badge-listed {
+  @apply bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded;
+}
+
+/* Market card styles */
+.market-card {
+  @apply bg-white rounded-lg p-6 border border-gray-100 transition-all duration-300;
+}
+
+.market-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Community card */
+.community-card {
+  @apply bg-white rounded-xl overflow-hidden border border-gray-100 transition-all duration-300;
+}
+
+.community-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Property card */
+.property-card {
+  @apply bg-white rounded-xl overflow-hidden border border-gray-100 transition-all duration-300;
+}
+
+.property-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4A84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
